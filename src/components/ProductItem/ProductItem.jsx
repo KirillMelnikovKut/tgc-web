@@ -1,11 +1,14 @@
 import React from 'react';
-import Button from "../Button/Button"
-import ProductItem from './ProductItem.css';
-const ProductItem = ({product,className,onAdd}) => {
-    const onAddHandler = () =>{
-        onAdd(product)
+import Button from "../Button/Button";
+import './ProductItem.css';
+
+const ProductItem = ({product, className, onAdd}) => {
+
+    const onAddHandler = () => {
+        onAdd(product);
     }
-    return ( 
+
+    return (
         <div className={'product ' + className}>
             <div className={'img'}/>
             <div className={'title'}>{product.title}</div>
@@ -18,6 +21,6 @@ const ProductItem = ({product,className,onAdd}) => {
             </Button>
         </div>
     );
-}
- 
+};
+
 export default ProductItem;
