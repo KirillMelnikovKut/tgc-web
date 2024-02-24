@@ -22,7 +22,7 @@ const ProductList = () => {
 
     const {tg}= useTelegram();
 
-    const onAdd = (product) => {
+const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
         let newItems = [];
 
@@ -33,27 +33,28 @@ const ProductList = () => {
         }
 
         setAddedItems(newItems)
-        if(newItems,length===0){
+
+        if(newItems.length === 0) {
             tg.MainButton.hide();
-        }
-        else{
+        } else {
             tg.MainButton.show();
             tg.MainButton.setParams({
-                text:`Купить ${getTotalPrice(newItems)}`
+                text: `Купить ${getTotalPrice(newItems)}`
             })
         }
     }
-    return ( 
-    <div className={'list'}>
-        {products.map(item => (
-            <ProductItem
-                product={item}
-                onAdd={onAdd}
-                className={'item'}
-            />
-        ))}
-    </div>
-     );
-}
- 
+
+    return (
+        <div className={'list'}>
+            {products.map(item => (
+                <ProductItem
+                    product={item}
+                    onAdd={onAdd}
+                    className={'item'}
+                />
+            ))}
+        </div>
+    );
+};
+
 export default ProductList;
